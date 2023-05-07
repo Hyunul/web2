@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <!-- 부트스트랩 사용하기 위해 -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <title>파티 생성</title>
+    </head>
+
+    <body>
+        <form method="post" action="/board/write_process">
+            <div class="container">
+                <h2>파티 모집</h2>
+
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="일시를 입력하세요"
+                                    name="title"
+                                    id="title"
+                                    maxlength="40"
+                                />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <form>
+                                    <input class="login" type="text" name="username" placeholder="아이디" />
+                                    <input class="login" type="password" name="pwd" placeholder="비밀번호" />
+                                </form>
+                                <div>
+                                    <select onchange="select_boss(this.value)" name="boss" id="boss">
+                                        <option value="발탄">발탄</option>
+                                        <option value="비아키스">비아키스</option>
+                                        <option value="쿠크세이튼">쿠크세이튼</option>
+                                        <option value="아브렐슈드 [노말]">아브렐슈드 [노말]</option>
+                                        <option value="아브렐슈드 [하드]">아브렐슈드 [하드]</option>
+                                        <option value="카양겔 [노말]">카양겔 [노말]</option>
+                                        <option value="카양겔 [하드]">카양겔 [하드]</option>
+                                        <option value="일리아칸 [노말]">일리아칸 [노말]</option>
+                                        <option value="일리아칸 [하드]">일리아칸 [하드]</option>
+                                        <option value="혼돈의 상아탑 [노말]">혼돈의 상아탑 [노말]</option>
+                                        <option value="혼돈의 상아탑 [하드]">혼돈의 상아탑 [하드]</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <input type="submit" class="btn btn-primary pull-right" value="모집 글 생성" />
+            </div>
+        </form>
+
+        <script>
+            var select_boss = function (value) {
+                var boss = document.getElementById('boss').value;
+
+                console.log(boss);
+            };
+        </script>
+    </body>
+</html>

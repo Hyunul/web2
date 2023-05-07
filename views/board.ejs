@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+
+    <body>
+        <button>
+            <a href="/board/write">파티 모집글 작성</a>
+        </button>
+        <table>
+            <tr>
+                <th>모집 내용</th>
+                <th>일시</th>
+            </tr>
+            <%
+            for(var i=0; i<rows.length; i++)  
+            {
+            %>
+            <tr>
+            <td><%= rows[i].title%></td>
+            <td><%= rows[i].boss%></td>
+            </tr>
+            <%}%>
+        </table>
+    </body>
+</html>
