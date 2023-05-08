@@ -9,11 +9,14 @@
         <button>
             <a href="/board/write">파티 모집글 작성</a>
         </button>
+        <button>
+            <a href="/auth/logout">로그아웃</a>
+        </button>
         <table>
             <tr>
                 <th>작성자</th>
                 <th>모집 내용</th>
-                <th>일시</th>
+                <th>보스</th>
             </tr>
             <%
             for(var i=0; i<rows.length; i++)  
@@ -25,7 +28,7 @@
                 <td><%= rows[i].boss%></td>
                 <td>
                     <button>수락</button>
-                    <button>취소</button>
+                    <button><a href="/board/delete/<%= encodeURIComponent(rows[i].title)%>">취소</a></button>
                 </td>
             </tr>
             <%}%>

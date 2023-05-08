@@ -17,11 +17,6 @@ router.use(
     })
 );
 
-router.get('/write', function (req, res) {
-    var title = '글쓰기';
-    res.render('write', { title: title });
-});
-
 router.get('/list', function (req, res) {
     res.redirect('/board/list/1');
 });
@@ -36,6 +31,11 @@ router.get('/list/:page', function (req, res) {
     });
 });
 
+router.get('/write', function (req, res) {
+    var title = '글쓰기';
+    res.render('write', { title: title });
+});
+
 router.post('/write_process', function (req, res) {
     var title = req.body.title;
     var boss = req.body.boss;
@@ -43,6 +43,17 @@ router.post('/write_process', function (req, res) {
 
     const sql = 'insert into board(title, boss, username) values (?, ?, ?)';
     const values = [title, boss, username];
+
+    db.query(sql, values, function (error, result) {
+        if (error) throw error;
+        res.redirect('/board/list');
+    });
+});
+
+router.get('/delete/:title', function (req, res) {
+    var title = decodeURIComponent(req.params.title);
+    var sql = 'delete from board where title=?';
+    var values = [title];
 
     db.query(sql, values, function (error, result) {
         if (error) throw error;
