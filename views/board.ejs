@@ -11,6 +11,7 @@
         </button>
         <table>
             <tr>
+                <th>작성자</th>
                 <th>모집 내용</th>
                 <th>일시</th>
             </tr>
@@ -19,8 +20,13 @@
             {
             %>
             <tr>
-            <td><%= rows[i].title%></td>
-            <td><%= rows[i].boss%></td>
+                <td><%= rows[i].username%></td>
+                <td><%= rows[i].title%></td>
+                <td><%= rows[i].boss%></td>
+                <td>
+                    <button>수락</button>
+                    <button>취소</button>
+                </td>
             </tr>
             <%}%>
         </table>
